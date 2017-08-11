@@ -3,14 +3,10 @@ import Vue from 'vue';
 import vueRouter from 'vue-router';
 import vueResource from 'vue-resource';
 
-
-
-import ComptApp from './component/App.vue';
-
 Vue.use(vueRouter);
 Vue.use(vueResource);
 
-
+import ComptApp from './component/App.vue';
 
 import router from './js/router.js';
 

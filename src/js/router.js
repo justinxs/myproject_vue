@@ -1,6 +1,6 @@
 import vueRouter from 'vue-router';
 
-import ComptIndex from '../component/index.vue'
+import ComptIndex from '../component/index/index.vue'
 
 export default new vueRouter({
     routes:[
