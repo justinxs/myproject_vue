@@ -1,7 +1,6 @@
 <template>
     <main>
-        <v-header>
-        </v-header>
+        <v-header></v-header>
         <router-view></router-view>
         <v-footer></v-footer>
     </main>
@@ -23,7 +22,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+
 
 </style>
 

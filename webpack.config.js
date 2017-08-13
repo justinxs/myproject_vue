@@ -36,17 +36,16 @@ module.exports = {
             //         "html-loader"
             //     ]
             // },
-            // {
-            //     test: /\.(jpg|gif|png)$/,
-            //     use: [{
-            //             loader: "url-loader",
-            //             options: {
-            //                 limit: 19000
-            //             }
-            //         },
-            //         "image-webpack-loader"
-            //     ]
-            // },
+            {
+                test: /\.(jpg|gif|png|ttf)$/,
+                use: [{
+                        loader: "url-loader",
+                        options: {
+                            limit: 19000
+                        }
+                    }
+                ]
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
