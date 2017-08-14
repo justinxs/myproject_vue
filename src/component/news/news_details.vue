@@ -14,25 +14,29 @@
             </div>
     
         </div>
+        <v-comment :id="id"></v-comment>
     </section>
 </template>
 
 <script>
 import ComptTitle from '../common/title.vue';
+import ComptComment from '../common/comment.vue';
 export default {
     data() {
         return {
             newsDetails: {},
             title: "新闻详情",
-            showIt: false
+            showIt: false,
+            id: this.$route.params.id
         }
     },
     components: {
-        "v-title": ComptTitle
+        "v-title": ComptTitle,
+        "v-comment": ComptComment
     },
     methods: {
         getNewsDetails() {
-            let url = "http://139.199.192.48:8888/api/getnew/" + this.$route.params.id;
+            let url = this.config.domain + "/getnew/" + this.$route.params.id;
             this.$http.get(url).then(res => {
                 if (res.body.status == 0) {
                     this.newsDetails = res.body.message[0];

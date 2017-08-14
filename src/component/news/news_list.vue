@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         getNewsList() {
-            let url = "http://139.199.192.48:8888/api/getnewslist"
+            let url = this.config.domain + "/getnewslist"
             this.$http.get(url).then(res => {
                 if (res.body.status == 0) {
                     this.newsList = res.body.message;

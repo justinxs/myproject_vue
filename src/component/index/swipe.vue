@@ -20,10 +20,8 @@ export default {
     },
     methods: {
         getList() {
-            // this.swipeList = [];
-            let url = "http://139.199.192.48:8888/api/getLunbo"
+            let url = this.config.domain + "/getLunbo"
             this.$http.get(url).then((res) => {
-                console.log(res.body);
                 if (res.body.status == 0) {
                     this.swipeList = res.body.message;
                 }
