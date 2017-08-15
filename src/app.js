@@ -6,6 +6,7 @@ import mintUI from 'mint-ui';
 //自定义插件
 import Scroll from './js/scroll.js';
 import config from './js/config.js';
+import filter from './js/filter.js';
 
 
 //css
@@ -18,13 +19,10 @@ Vue.use(vueResource);
 Vue.use(mintUI);
 Vue.use(Scroll);
 Vue.use(config);
+Vue.use(filter);
 
 
-Vue.filter("formatDate", function (source, arg="YYYY-MM-DD") {
-    let time = new Date(source);
-    return arg.replace(new RegExp("YYYY", "ig"), time.getFullYear()).replace(new RegExp("MM", "ig"), time.getMonth() + 1)
-        .replace(new RegExp("DD", "ig"), time.getDay());
-})
+
 
 import ComptApp from './component/App.vue';
 

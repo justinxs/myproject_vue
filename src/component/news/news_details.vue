@@ -14,7 +14,7 @@
             </div>
     
         </div>
-        <v-comment :id="id"></v-comment>
+        <v-comment :id="id" v-if="showIt"></v-comment>
     </section>
 </template>
 

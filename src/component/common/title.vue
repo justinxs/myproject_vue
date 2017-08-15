@@ -27,8 +27,13 @@ export default {
 
 <style lang="less">
     .title{
-        background-color: #fff;
+        
+        background-color: rgb(225, 245, 106);
         color: #000;
         border-bottom: 1px solid #ccc;
+        .mint-header-title{
+            font-size: 18px;
+            font-family: "微软雅黑";
+        }
     }
 </style>

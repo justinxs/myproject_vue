@@ -3,7 +3,7 @@
         <mt-swipe :auto="2000">
             <mt-swipe-item v-for="(v,i) in swipeList" :key="i">
                 <a :href="v.url">
-                    <img :src="v.img">
+                    <img ref="imgH" :src="v.img">
                 </a>
             </mt-swipe-item>
         </mt-swipe>
@@ -13,9 +13,9 @@
 <script>
 
 export default {
-    data(){
+    data() {
         return {
-            swipeList:[]
+            swipeList: []
         }
     },
     methods: {
@@ -36,10 +36,10 @@ export default {
 
 <style lang="less">
 .swipe {
-    width: 100%;
+    width: 100%; 
     height: 230px;
     img {
-        width: 100%;
+        width: 100%; 
         height: 230px;
     }
 }

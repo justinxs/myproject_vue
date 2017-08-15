@@ -76,6 +76,11 @@ export default {
             padding: 0 16px;
         }
     }
+    .mui-card-header{
+        display: block;
+        font-weight: bold;
+        text-align: center;
+    }
     .mui-card-footer {
         padding-bottom: 20px;
         span {

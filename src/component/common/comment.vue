@@ -76,6 +76,7 @@ export default {
                         this.moreText = "没有更多了..."
                         this.$refs.loadBtn.disabled = true;
                         this.$refs.loadBtn.style.backgroundColor = "#ccc";
+                        this.$refs.loadBtn.style.color = "rgb(82, 31, 31)";
                     }
 
                 }
@@ -90,6 +91,12 @@ export default {
 
 
 <style lang="less">
-
+.comment{
+    button{
+        padding:5px 0px;
+        // height: 40px;
+        // line-height: 40px;
+    }
+}
 </style>
 

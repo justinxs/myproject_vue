@@ -67,7 +67,7 @@ export default {
     },
     created() {
         this.getPhotoCategory();
-        this.getPhotoList(0);
+        this.getPhotoList(this.$route.params.id);
     }
 }
 </script>
