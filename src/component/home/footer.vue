@@ -5,15 +5,14 @@
         <span class="mui-icon mui-icon-home"></span>
         <span class="mui-tab-label">首页</span>
       </a>
-      <a class="mui-tab-item" href="#tabbar-with-chat">
+      <router-link class="mui-tab-item" to="/goods/list">
         <span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled">
-          <span class="mui-badge">0</span>
         </span>
-        <span class="mui-tab-label">收藏</span>
-      </a>
+        <span class="mui-tab-label">商品</span>
+      </router-link>
       <a class="mui-tab-item" href="#tabbar-with-contact">
         <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-          <span class="mui-badge">0</span>
+          <span class="mui-badge" id="carNum">{{num}}</span>
         </span>
         <span class="mui-tab-label">购物车</span>
       </a>
@@ -28,19 +27,23 @@
 
 
 <script>
+import buyDate from '../../js/model/buy_date.js';
 export default {
-
+  data(){
+    return {
+      num: buyDate.getAll()
+    }
+  }
 }
 </script>
 
 <style lang="less">
-.footer{
-  nav{
+.footer {
+  nav {
     background-color: #fff;
   }
-  div{
+  div {
     height: 50px;
   }
 }
-
 </style>

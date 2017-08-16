@@ -3,6 +3,11 @@ import Vue from 'vue';
 import vueRouter from 'vue-router';
 import vueResource from 'vue-resource';
 import mintUI from 'mint-ui';
+import vuePicturePreview from 'vue-picture-preview';
+
+
+//chrome新属性  让mousewheel和thouch事件更流畅
+// import 'default-passive-events/default-passive-events.js'
 //自定义插件
 import Scroll from './js/scroll.js';
 import config from './js/config.js';
@@ -20,6 +25,10 @@ Vue.use(mintUI);
 Vue.use(Scroll);
 Vue.use(config);
 Vue.use(filter);
+Vue.use(vuePicturePreview);
+
+
+
 
 
 

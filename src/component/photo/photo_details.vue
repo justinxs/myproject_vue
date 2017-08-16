@@ -13,9 +13,7 @@
                 <div class="mui-card-content-inner">
                     <ul class="mui-table-view mui-grid-view" v-if="showIt">
                         <li v-for="(item,i) in imgSrc" :key="i" class="mui-table-view-cell mui-media mui-col-xs-4">
-                            <a href="#">
-                                <img class="mui-media-object" :src="getPhotoUrl(item.src)">
-                            </a>
+                            <img class="mui-media-object" :src="item.src" v-preview="item.src">
                         </li>
                     </ul>
                 </div>
@@ -44,7 +42,11 @@ export default {
             let url = this.config.domain + "/getthumimages/" + this.$route.params.id;
             this.$http.get(url).then(res => {
                 if (res.body.status == 0) {
-                    this.imgSrc = res.body.message;
+                    this.imgSrc = res.body.message.map((v,i)=>{
+                        v.src = this.config.baseURL + v.src;
+                        return v
+                    });
+
                     this.showIt = true;
                 }
             })
@@ -56,9 +58,6 @@ export default {
                     this.imgInfo = res.body.message[0];
                 }
             })
-        },
-        getPhotoUrl(srcStr) {
-            return this.config.baseURL + srcStr;
         }
     },
     created() {

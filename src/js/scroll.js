@@ -21,7 +21,7 @@ export default function (Vue) {
                     return;
                 }
                 _this.startX = e.targetTouches[0].clientX;
-            });
+            },{ passive: true });
             _this.dom.addEventListener("touchmove", function (e) {
                 if (e.targetTouches.length > 1) {
                     return;
@@ -40,7 +40,7 @@ export default function (Vue) {
                 this.style.transition = "none";
                 //滑动移动的距离
                 this.style.transform = "translateX(" + moveX + "px)";
-            });
+            },{ passive: true });
             _this.dom.addEventListener("touchend", function (e) {
                 if (e.changedTouches.length > 1) {
                     return;
@@ -57,7 +57,7 @@ export default function (Vue) {
                     this.style.transition = "all 0.3s";
                     this.style.transform = "translateX(" + _this.max + "px)";
                 }
-            });
+            },{ passive: true });
         },
         //点击事件
         tap: function () {
@@ -71,7 +71,7 @@ export default function (Vue) {
                 startX = e.targetTouches[0].clientX;
                 startY = e.targetTouches[0].clientY;
                 startTime = Date.now();
-            });
+            },{ passive: true });
             _this.dom.addEventListener("touchend", function (e) {
                 if (e.changedTouches.length > 1) {
                     return;
@@ -89,7 +89,7 @@ export default function (Vue) {
                     return;
                 }
                 _this.handleFN(e);
-            });
+            },{ passive: true });
         },
         //点击事件业务逻辑
         handleFN: function (e) {
