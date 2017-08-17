@@ -11,7 +11,7 @@
         <div class="mui-card" v-for="item in photoList" :key="item.id">
             <router-link :to='"/photo/details/"+item.id'>
                 <div class="mui-card-header">
-                    <img class="mui-card-media" style="height:40vw;width:100%" v-lazy="item.img_url" />
+                    <img class="mui-card-media" style="height:100%;width:100%" v-lazy="item.img_url" />
                 </div>
             </router-link>
             <div class="mui-card-content">

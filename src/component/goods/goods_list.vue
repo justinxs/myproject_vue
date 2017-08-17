@@ -23,7 +23,7 @@
                         <strong>${{item.sell_price}}</strong>&nbsp;
                         <del>${{item.market_price}}</del>
                     </div>
-                    <div class="stock">库存:{{item.stock_quantity}}</div>
+                    <div class="stock">库存:{{item.stock_quantity - (buyed[item.id] || 0)}}</div>
                 </div>
             </div>
         </div>
@@ -35,12 +35,14 @@
 
 <script>
 import ComptTitle from '../common/title.vue';
+import buyDate from '../../js/model/buy_date.js';
 export default {
     data() {
         return {
             goodsList: [],
             title: "商品列表",
-            pageIndex: 1
+            pageIndex: 1,
+            buyed:buyDate.getInit()
         }
     },
     components: {

@@ -19,11 +19,11 @@ export default {
 
 <style lang="less">
 .swipe {
-    width: 100%; 
-    height: 230px;
+    width: 100%;
+    height: 300px;
     img {
         width: 100%; 
-        height: 230px;
+        height: 300px;
     }
 }
 </style>

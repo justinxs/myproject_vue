@@ -10,12 +10,12 @@
         </span>
         <span class="mui-tab-label">商品</span>
       </router-link>
-      <a class="mui-tab-item" href="#tabbar-with-contact">
+      <router-link class="mui-tab-item" to="/shopcar/list">
         <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
           <span class="mui-badge" id="carNum">{{num}}</span>
         </span>
         <span class="mui-tab-label">购物车</span>
-      </a>
+      </router-link>
       <a class="mui-tab-item" href="#tabbar-with-map">
         <span class="mui-icon mui-icon-contact"></span>
         <span class="mui-tab-label">个人中心</span>

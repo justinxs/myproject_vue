@@ -19,19 +19,21 @@
                     <p class="FL">库存:{{buyInfo.stock_quantity - buyNum}}</p>
                 </div>
                 <div class="add_goods clearfix">
-                    <button class="buyBtn mui-pull-left">立即购买</button>
+                    <router-link to="/shopcar/list">
+                        <button class="buyBtn mui-pull-left">立即购买</button>
+                    </router-link>
                     <button class="addBtn mui-pull-right" @click="addToCar">加入购物车</button>
                 </div>
             </div>
         </div>
         <div class="introduce">
             <mt-navbar v-model="selected">
-                <mt-tab-item id="1">图文介绍</mt-tab-item>
-                <mt-tab-item id="2">评论</mt-tab-item>
+                <mt-tab-item id="1" @click="disPrevent">图文介绍</mt-tab-item>
+                <mt-tab-item id="2" @click="disPrevent">评论</mt-tab-item>
             </mt-navbar>
             <!-- tab-container -->
             <mt-tab-container v-model="selected">
-                <mt-tab-container-item id="1" v-if="showInfo">
+                <mt-tab-container-item id="1">
                     <div class="mui-card-content">
                         <div class="mui-card-content-inner">
                             <p class="content_title">{{goodsInfo.title}}</p>
@@ -58,11 +60,11 @@ export default {
     data() {
         return {
             title: "商品详情",
-            id: this.$route.params.id.toString(),
+            id: this.$route.params.id,
             goodsInfo: {},
             buyInfo: {},
             goodsPhotos: [],
-            buyNum: 0,
+            buyNum: buyDate.get(this.$route.params.id) || 0,
             selected: "",
             showInfo: false
         }
@@ -101,21 +103,25 @@ export default {
                 }
             })
         },
-        getNum() {
-            this.buyNum = buyDate.get(this.id)|| 0;
-        },
+        // getNum() {
+        //     this.buyNum = buyDate.get(this.id)|| 0;
+        // },
         add(num) {
             num >= 0 && (this.buyNum = num);
-            buyDate.set(this.id, this.buyNum);
         },
         addToCar(){
+            buyDate.set(this.id, this.buyNum);
             document.querySelector("#carNum").innerText = buyDate.getAll();
+        },
+        disPrevent(e){
+            e.preventDefault() 
+            return false
         }
     },
     created() {
         this.getGoodsPhotos();
         this.getBuyInfo();
-        this.getNum();
+        // this.getNum();
     },
     watch: {
         selected: function () {
@@ -188,17 +194,27 @@ export default {
     }
     .introduce {
         .mui-card-content-inner {
+            padding: 10px 10px;
             p {
                 margin: 0;
                 padding: 0;
+                text-indent: 2em;
+                &[style],&[align]{
+                    text-indent: 0;
+                }
             }
             .content_title {
+                text-indent: 0;
+                padding:4px 0px;
                 text-align: center;
                 font-weight: bold;
             }
             img {
                 width: 100%;
                 vertical-align: middle;
+            }
+            table{
+                width: 100% !important;
             }
         }
     }

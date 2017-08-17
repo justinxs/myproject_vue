@@ -6,7 +6,7 @@
                 <router-link v-bind="{to:'/news/details/'+item.id}">
                     <img class="mui-media-object mui-pull-left" :src="item.img_url">
                     <div class="mui-media-body">
-                        {{item.title}}
+                        <p class="news_title">{{item.title}}</p>
                         <p class="mui-ellipsis">
                             <span class="mui-pull-left">加入时间 : {{item.add_time |formatDate("yyyy-mm-DD")}}</span>
                             <span class="mui-pull-right">点击量 : {{item.click}}</span>
@@ -47,5 +47,7 @@ export default {
 </script>
 
 <style lang="less">
-
+.news_title{
+    color: #000;
+}
 </style>

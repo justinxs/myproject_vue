@@ -24,12 +24,6 @@ export default {
         }
     },
     getAll: function () {
-        let obj = {};
-        for (var i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
-            let value = localStorage.getItem(key);
-            obj[key] = value;
-        }
-        return obj
+        // localStorage.getItem("mybuy")
     }
 }

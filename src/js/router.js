@@ -7,6 +7,7 @@ import ComptPhotoList from '../component/photo/photo_list.vue';
 import ComptPhotoDetails from '../component/photo/photo_details.vue';
 import ComptGoodsList from '../component/goods/goods_list.vue';
 import ComptGoodsDetails from '../component/goods/goods_details.vue';
+import ComptShopcar from '../component/shopcar/shopcar.vue';
 
 export default new vueRouter({
     routes:[
@@ -18,5 +19,6 @@ export default new vueRouter({
         {path:"/photo/details/:id",component:ComptPhotoDetails},
         {path:"/goods/list",component:ComptGoodsList},
         {path:"/goods/details/:id",component:ComptGoodsDetails},
+        {path:"/shopcar/list",component:ComptShopcar},
     ]
 })
