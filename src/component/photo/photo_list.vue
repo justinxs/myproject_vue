@@ -60,7 +60,7 @@ export default {
                         let myScroll = new IScroll('.wrapper', {
                             //mouseWheel: true,//滚轮
                             click: true,
-                            eventPassthrough: true, //纵向滚动整个页面，横向滚动iscroll区域
+                            //eventPassthrough: true, //纵向滚动整个页面，横向滚动iscroll区域
                             scrollX: true, //默认是纵向，横向需要设置scrollX
                             scrollY: false
                         });

@@ -97,7 +97,7 @@ export default {
             return this.numValue = this.mybuyDate(id)
         },
         add(id, num) {
-            if (num >= 0) {
+            if (num >=0) {
                 this.mybuyDate[id] = num;
                 buyDate.set(id, num);
                 document.querySelector("#carNum").innerText = buyDate.getAll();
