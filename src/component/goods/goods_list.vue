@@ -35,14 +35,14 @@
 
 <script>
 import ComptTitle from '../common/title.vue';
-import buyDate from '../../js/model/buy_date.js';
+// import buyDate from '../../js/model/buy_date.js';
 export default {
     data() {
         return {
             goodsList: [],
             title: "商品列表",
             pageIndex: 1,
-            buyed:buyDate.getInit()
+            buyed:this.$store.state
         }
     },
     components: {
@@ -62,9 +62,6 @@ export default {
                     }
                 }
             })
-        },
-        getMoreGoods() {
-
         }
     },
     created() {

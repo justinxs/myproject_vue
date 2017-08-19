@@ -28,8 +28,8 @@
         </div>
         <div class="introduce">
             <mt-navbar v-model="selected">
-                <mt-tab-item id="1" @click="disPrevent">图文介绍</mt-tab-item>
-                <mt-tab-item id="2" @click="disPrevent">评论</mt-tab-item>
+                <mt-tab-item id="1">图文介绍</mt-tab-item>
+                <mt-tab-item id="2">评论</mt-tab-item>
             </mt-navbar>
             <!-- tab-container -->
             <mt-tab-container v-model="selected">
@@ -51,7 +51,8 @@
 </template>
 
 <script>
-import buyDate from '../../js/model/buy_date.js';
+// import buyDate from '../../js/model/buy_date.js';
+// import dateManager from '../../js/common/dateManager.js';
 
 import ComptTitle from '../common/title.vue';
 import ComptSwipe from '../common/swipe.vue';
@@ -64,7 +65,7 @@ export default {
             goodsInfo: {},
             buyInfo: {},
             goodsPhotos: [],
-            buyNum: buyDate.get(this.$route.params.id) || 0,
+            buyNum: this.$store.state[this.$route.params.id] || 0,
             selected: "",
             showInfo: false
         }
@@ -103,25 +104,18 @@ export default {
                 }
             })
         },
-        // getNum() {
-        //     this.buyNum = buyDate.get(this.id)|| 0;
-        // },
         add(num) {
             num >= 0 && (this.buyNum = num);
         },
         addToCar(){
-            buyDate.set(this.id, this.buyNum);
-            document.querySelector("#carNum").innerText = buyDate.getAll();
-        },
-        disPrevent(e){
-            e.preventDefault() 
-            return false
+            this.$store.commit("set",{id:this.id,num:this.buyNum});
+            // buyDate.set(this.id, this.buyNum);
+            // document.querySelector("#carNum").innerText = buyDate.getAll();
         }
     },
     created() {
         this.getGoodsPhotos();
         this.getBuyInfo();
-        // this.getNum();
     },
     watch: {
         selected: function () {

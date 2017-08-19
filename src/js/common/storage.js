@@ -22,8 +22,5 @@ export default {
             }
             return buyDate
         }
-    },
-    getAll: function () {
-        // localStorage.getItem("mybuy")
     }
 }

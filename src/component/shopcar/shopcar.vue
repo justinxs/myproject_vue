@@ -40,14 +40,15 @@
 </template>
 
 <script>
-import buyDate from '../../js/model/buy_date.js';
+// import buyDate from '../../js/model/buy_date.js';
+// import dateManager from '../../js/common/dateManager.js';
 import ComptTitle from '../common/title.vue';
 export default {
     data() {
         return {
             title: "购物车",
             goodsList: [],
-            mybuyDate: buyDate.getInit(),
+            mybuyDate: this.$store.state,
             selected: true,
             numValue: 0
         }
@@ -83,6 +84,7 @@ export default {
             } else {
                 return
             }
+            console.log(url);
             this.$http.get(url).then(res => {
                 if (res.body.status == 0) {
                     this.goodsList = res.body.message.map((v, i) => {
@@ -98,16 +100,13 @@ export default {
         },
         add(id, num) {
             if (num >=0) {
-                this.mybuyDate[id] = num;
-                buyDate.set(id, num);
-                document.querySelector("#carNum").innerText = buyDate.getAll();
+                this.$store.commit("set",{id:id,num:num});
             }
         },
         del(id) {
-            let index = this.goodsList.findIndex(item => item.id == id);
-            this.goodsList.splice(index, 1);
-            buyDate.remove(id);
-            document.querySelector("#carNum").innerText = buyDate.getAll();
+            this.$store.commit("remove",id);
+            let index = this.goodsList.findIndex(item=>item.id==id);
+            this.goodsList.splice(index,1);
         }
     },
     created() {

@@ -1,6 +1,7 @@
 "use strict";
 import Vue from 'vue';
 import vueRouter from 'vue-router';
+import Vuex from 'vuex';
 import vueResource from 'vue-resource';
 import mintUI from 'mint-ui';
 import vuePicturePreview from 'vue-picture-preview';
@@ -20,6 +21,7 @@ import 'mui/examples/hello-mui/css/icons-extra.css';
 import 'mint-ui/lib/style.css';
 
 Vue.use(vueRouter);
+Vue.use(Vuex);
 Vue.use(vueResource);
 Vue.use(mintUI);
 Vue.use(Scroll);
@@ -32,7 +34,7 @@ Vue.use(vuePicturePreview);
 
 
 
-
+import dateManager from './js/common/dateManager.js';
 import ComptApp from './component/App.vue';
 
 import router from './js/router.js';
@@ -40,5 +42,6 @@ import router from './js/router.js';
 let vm = new Vue({
     el: "#app",
     render: c => c(ComptApp),
-    router
+    router,
+    store: new Vuex.Store(dateManager)
 })
