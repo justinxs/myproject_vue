@@ -8,9 +8,6 @@ export default {
     mutations: {
         set(state,obj){
             Vue.set(state,obj.id,obj.num);
-            if(obj.num==0){
-                delete state[obj.id];
-            }
             storage.setStorage(myKey, state);
         },
         remove(state,id){

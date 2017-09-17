@@ -108,9 +108,11 @@ export default {
             num >= 0 && (this.buyNum = num);
         },
         addToCar(){
-            this.$store.commit("set",{id:this.id,num:this.buyNum});
-            // buyDate.set(this.id, this.buyNum);
-            // document.querySelector("#carNum").innerText = buyDate.getAll();
+            if(this.buyNum==0){
+                this.$store.commit("remove",this.id);
+            }else{
+                this.$store.commit("set",{id:this.id,num:this.buyNum});
+            }
         }
     },
     created() {
